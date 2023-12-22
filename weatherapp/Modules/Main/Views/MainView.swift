@@ -10,12 +10,10 @@ class MainView: CultureRxView<MainViewConfig> {
 			collectionViewLayout: UICollectionViewFlowLayout()
 		)
 		
-		collectionView.dataSource = self
+//		collectionView.dataSource = self
 		collectionView.delegate = self
+//		collectionView.dragDelegate = self
 		collectionView.register(CityCell.self, forCellWithReuseIdentifier: "CityCell")
-		
-		let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture))
-		collectionView.addGestureRecognizer(longPressGesture)
 		
 		return collectionView
 	}()
@@ -36,11 +34,29 @@ class MainView: CultureRxView<MainViewConfig> {
 	
 	override func prepareView() {
 		super.prepareView()
+		
+		prepareCollectionView()
+		
+		let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture))
+		collectionView.addGestureRecognizer(longPressGesture)
 	}
 	
-	override func configure() {
-		super.configure()
-		backgroundColor = .black
+	func prepareCollectionView() {
+//		model.$weatherList.bind(to: collectionView.) { collectionView, index, item in
+//			let indexPath = IndexPath(item: index, section: 0)
+//			let cell: CustomCell =
+//		collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CustomCell
+//			cell.setup(with: item)
+//			return cell
+//		}.disposed(by: disposeBag)
+//
+		model.$weatherList.bind(to: collectionView.rx.items(cellIdentifier: "CityCell", cellType: CityCell.self)) { row, model, cell in
+			cell.update(item: model, tapActin: self.tapItemAction)
+		}
+	}
+	
+	private func tapItemAction(weather: Weather) {
+		model.event = .openDetail(weather)
 	}
 	
 	@objc private func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
@@ -59,20 +75,19 @@ class MainView: CultureRxView<MainViewConfig> {
 	}
 }
 
-extension MainView: UICollectionViewDataSource {
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		model.cities?.count ?? .zero
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath)
-		guard let concreteCell = cell as? CityCell else { return cell }
-		guard let cities = model.cities else { return cell }
-		let codeIndex = indexPath.item % cities.count
-		concreteCell.update(name: cities[codeIndex])
-		return cell
-	}
-}
+//	extension MainView: UICollectionViewDataSource {
+//		func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//			model.weatherList.count
+//		}
+//
+//		func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath)
+//			guard let concreteCell = cell as? CityCell else { return cell }
+//			let codeIndex = indexPath.item % model.weatherList.count
+//			concreteCell.update(item: model.weatherList[codeIndex])
+//			return cell
+//		}
+//	}
 
 extension MainView: UICollectionViewDelegateFlowLayout {
 	func collectionView(
@@ -89,21 +104,29 @@ extension MainView: UICollectionViewDelegateFlowLayout {
 
 extension MainView: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-		let item = model.cities?.remove(at: sourceIndexPath.row)
-		guard let item else { return }
-		model.cities?.insert(item, at: destinationIndexPath.row)
+		let item = model.weatherList.remove(at: sourceIndexPath.row)
+		model.weatherList.insert(item, at: destinationIndexPath.row)
 		
 		model.event = .listReordered
 	}
 }
 
+//extension MainView: UICollectionViewDragDelegate {
+//	func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+//
+//	}
+//}
+
 final class MainViewConfig: CultureRxModelOfView {
 	@RxPublished var event: Event?
-	@RxPublished var cities: [String]?
+	@RxPublished var isLoading: Bool?
+	@RxPublished var weatherList: [Weather] = []
 }
 
 extension MainViewConfig {
 	enum Event {
+		case reverseList
 		case listReordered
+		case openDetail(Weather)
 	}
 }

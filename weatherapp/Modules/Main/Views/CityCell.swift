@@ -3,9 +3,12 @@ import SnapKit
 import UIKit
 
 final class CityCell: UICollectionViewCell {
-	var contaienr = UIView()
+	var container = UIView()
 	var cityNameLabel = UILabel()
 	var temperatureLabel = UILabel()
+	
+	var model: Weather?
+	var selectItem: ((Weather) -> Void)?
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -20,19 +23,21 @@ final class CityCell: UICollectionViewCell {
 	}
 	
 	// MARK: - Internal methods
-	func update(name: String) {
-		cityNameLabel.text = name
-		temperatureLabel.text = "+\(Int.random(in: 1..<25))" // TODO: сделать нормальную модель WeatherItem { let cityName, let temperature }
+	func update(item: Weather, tapActin: @escaping (Weather) -> Void) {
+		self.selectItem = tapActin
+		self.model = item
+		self.cityNameLabel.text = item.name
+		self.temperatureLabel.text = item.forecast.first?.temperature
 	}
 	
 	// MARK: - Private methods
 	private func addSubviews() {
-		contaienr.addSubviews(cityNameLabel, temperatureLabel)
-		addSubviews(contaienr)
+		container.addSubviews(cityNameLabel, temperatureLabel)
+		addSubviews(container)
 	}
 	
 	private func makeConstraints() {
-		contaienr.snp.makeConstraints { make in
+		container.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(16)
 			make.verticalEdges.equalToSuperview().inset(8)
 		}
@@ -49,17 +54,26 @@ final class CityCell: UICollectionViewCell {
 	}
 	
 	private func configure() {
-		contaienr.backgroundColor = .white
-		contaienr.layer.cornerRadius = 10
+		container.backgroundColor = .white
+		container.layer.cornerRadius = 10
 		
-		contaienr.layer.shadowOpacity = 0.2
-		contaienr.layer.shadowRadius = 10
-		contaienr.layer.shadowColor = UIColor.black.cgColor
-		contaienr.layer.shadowOffset = CGSize(width: 0, height: 0)
+		container.layer.shadowOpacity = 0.2
+		container.layer.shadowRadius = 10
+		container.layer.shadowColor = UIColor.black.cgColor
+		container.layer.shadowOffset = CGSize(width: 0, height: 0)
+		
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+		container.addGestureRecognizer(tapGesture)
 	}
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
+	}
+	
+	// MARK: - actions
+	@objc private func tapAction() {
+		guard let model, let selectItem else { return }
+		selectItem(model)
 	}
 }
 

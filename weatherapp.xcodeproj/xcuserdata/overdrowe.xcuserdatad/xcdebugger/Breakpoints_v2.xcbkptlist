@@ -7,47 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0ECA47D0-A9F6-4AE6-9471-E6734C1959B7"
+            uuid = "FE6FD851-4F89-4A59-88F8-70B8B8D7C732"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weatherapp/Modules/Main/Views/MainView.swift"
+            filePath = "weatherapp/Modules/WeatherDetail/WeatherDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "collectionView(_:moveItemAt:to:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "setupWeekWeather(forecast:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0ECA47D0-A9F6-4AE6-9471-E6734C1959B7 - b879fc4b1cf1d203"
+                  uuid = "FE6FD851-4F89-4A59-88F8-70B8B8D7C732 - f6ccc835b33ff3f8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "weatherapp.MainView.collectionView(_: __C.UICollectionView, moveItemAt: Foundation.IndexPath, to: Foundation.IndexPath) -&gt; ()"
+                  symbolName = "weatherapp.WeatherDetailView.setupWeekWeather(forecast: Swift.Array&lt;weatherapp.DayWeather&gt;) -&gt; ()"
                   moduleName = "weatherapp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/overdrowe/Development/pet/weatherapp/weatherapp/Modules/Main/Views/MainView.swift"
+                  urlString = "file:///Users/overdrowe/Development/pet/weatherapp/weatherapp/Modules/WeatherDetail/WeatherDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "188">
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
-                  uuid = "0ECA47D0-A9F6-4AE6-9471-E6734C1959B7 - b879fc4b1cf1d203"
+                  uuid = "FE6FD851-4F89-4A59-88F8-70B8B8D7C732 - 4840bafc7ab69f42"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "weatherapp.MainView.collectionView(_: __C.UICollectionView, moveItemAt: Foundation.IndexPath, to: Foundation.IndexPath) -&gt; ()"
+                  symbolName = "closure #1 ((offset: Swift.Int, element: weatherapp.DayWeather)) -&gt; () in weatherapp.WeatherDetailView.setupWeekWeather(forecast: Swift.Array&lt;weatherapp.DayWeather&gt;) -&gt; ()"
                   moduleName = "weatherapp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/overdrowe/Development/pet/weatherapp/weatherapp/Modules/Main/Views/MainView.swift"
+                  urlString = "file:///Users/overdrowe/Development/pet/weatherapp/weatherapp/Modules/WeatherDetail/WeatherDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "208">
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "332">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,16 +55,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3FFB0BAD-F379-40A3-87F8-8B7D81EBC5C1"
+            uuid = "814FD1E2-2013-4182-85ED-A8EC93ABC4C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/Modules/WeatherDetail/WeatherDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "setupForecastConstraints()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C542E3D-14E6-4922-9AF8-2677F78F903A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/Modules/WeatherDetail/Views/DayWeatherView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "tapAction()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8C542E3D-14E6-4922-9AF8-2677F78F903A - e81d22df506ab047"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherapp.DayWeatherView.tapAction() -&gt; ()"
+                  moduleName = "weatherapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/overdrowe/Development/pet/weatherapp/weatherapp/Modules/WeatherDetail/Views/DayWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "8C542E3D-14E6-4922-9AF8-2677F78F903A - e81d22df506ab026"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherapp.DayWeatherView.tapAction() -&gt; ()"
+                  moduleName = "weatherapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/overdrowe/Development/pet/weatherapp/weatherapp/Modules/WeatherDetail/Views/DayWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "365E60AF-0F27-4B23-A0B9-897C045C9CB8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weatherapp/Modules/Main/MainViewModel.swift"
+            filePath = "weatherapp/Modules/WeatherDetail/WeatherDetailViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "observeViewEvents(event:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "353605A9-77B8-4620-80D6-EEEE1D911236"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/Modules/WeatherDetail/WeatherDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "observeViewEvents(event:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C3D6798-2961-4015-A80F-089928A28E63"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Desktop/WeatherDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "updateState()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

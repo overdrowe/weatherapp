@@ -1,10 +1,10 @@
 import Foundation
 
-final class MainModel {
+struct MainModel {
 	// TODO: пока что не нужно
-	var cities: [String]
+	var cities: [Weather]
 	
-	init(cities: [String]) {
+	init(cities: [Weather]) {
 		self.cities = cities
 	}
 }
